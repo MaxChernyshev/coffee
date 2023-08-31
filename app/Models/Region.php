@@ -13,4 +13,9 @@ class Region extends Model
         'name',
         'details',
     ];
+
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
 }
