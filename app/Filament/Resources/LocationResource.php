@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RegionResource\Pages;
-use App\Filament\Resources\RegionResource\RelationManagers;
-use App\Models\Region;
+use App\Filament\Resources\LocationResource\Pages;
+use App\Filament\Resources\LocationResource\RelationManagers;
+use App\Models\Location;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -14,9 +14,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class RegionResource extends Resource
+class LocationResource extends Resource
 {
-    protected static ?string $model = Region::class;
+    protected static ?string $model = Location::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -29,11 +29,17 @@ class RegionResource extends Resource
                     ->unique()
                     ->autofocus()
                     ->placeholder('new User'),
-                TextInput::make('details')
+                TextInput::make('address')
                     ->required()
                     ->unique()
                     ->autofocus()
-                    ->placeholder('Region details'),
+                    ->placeholder('address'),
+                TextInput::make('location_id')
+                    ->required()
+                    ->unique()
+                    ->autofocus()
+                    ->placeholder('location id'),
+
             ]);
     }
 
@@ -44,10 +50,10 @@ class RegionResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('details')
+                Tables\Columns\TextColumn::make('address')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('locations.name')
+                Tables\Columns\TextColumn::make('region.name')
                     ->sortable()
                     ->searchable()
             ])
@@ -77,9 +83,9 @@ class RegionResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRegions::route('/'),
-            'create' => Pages\CreateRegion::route('/create'),
-            'edit' => Pages\EditRegion::route('/{record}/edit'),
+            'index' => Pages\ListLocations::route('/'),
+            'create' => Pages\CreateLocation::route('/create'),
+            'edit' => Pages\EditLocation::route('/{record}/edit'),
         ];
     }
 }

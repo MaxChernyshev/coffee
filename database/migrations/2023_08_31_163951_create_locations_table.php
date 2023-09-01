@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->string('address')->unique();
+            $table->string('details')->nullable();
+            $table->foreignId('region_id')->constrained();
             $table->timestamps();
         });
     }
