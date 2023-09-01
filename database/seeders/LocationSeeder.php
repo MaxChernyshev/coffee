@@ -21,8 +21,6 @@ class LocationSeeder extends Seeder
             Location::factory($region->id)
                 ->count(3)
                 ->create();
-//            dump($region->id);
         }
-//        dd();
     }
 }
