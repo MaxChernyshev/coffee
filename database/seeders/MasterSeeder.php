@@ -3,26 +3,25 @@
 namespace Database\Seeders;
 
 use App\Models\Location;
-use App\Models\Region;
+use App\Models\Master;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class LocationSeeder extends Seeder
+class MasterSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $regions = Region::get();
 
-        foreach ($regions as $region) {
+        $locations = Location::get();
 
-            Location::factory($region->id)
-                ->count(3)
-                ->create();
+        foreach ($locations as $location) {
+            Master::factory()
+                ->count(10)
+                ->create(['location_id' => $location->id]);
         }
-
 
     }
 }
