@@ -9,14 +9,20 @@ class Location extends Model
 {
     use HasFactory;
 
-    protected $fillable =[
+    protected $fillable = [
         'name',
         'address',
         'details',
         'region_id',
     ];
 
-    public function region() {
-        return $this->belongsTo(Region::class, 'region_id');
+    public function region()
+    {
+        return $this->belongsTo(Region::class);
+    }
+
+    public function manager()
+    {
+        return $this->hasOne(Manager::class);
     }
 }
