@@ -3,11 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Location;
-use App\Models\Master;
+use App\Models\Manager;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class MasterSeeder extends Seeder
+class ManagerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,8 +17,7 @@ class MasterSeeder extends Seeder
         $locations = Location::get();
 
         foreach ($locations as $location) {
-            Master::factory()
-                ->count(10)
+            Manager::factory()
                 ->create(['location_id' => $location->id]);
         }
     }
