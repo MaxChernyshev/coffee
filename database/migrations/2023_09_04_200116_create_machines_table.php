@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('location_id')->constrained();
             $table->foreignId('master_id')->constrained();
             $table->foreignId('machine_type_id')->constrained();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

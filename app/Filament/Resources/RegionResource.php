@@ -18,7 +18,9 @@ class RegionResource extends Resource
 {
     protected static ?string $model = Region::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+//    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationGroup = 'Locations';
 
     public static function form(Form $form): Form
     {

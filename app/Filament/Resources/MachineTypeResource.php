@@ -20,7 +20,9 @@ class MachineTypeResource extends Resource
 {
     protected static ?string $model = MachineType::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+//    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationGroup = 'Machines';
 
     public static function form(Form $form): Form
     {

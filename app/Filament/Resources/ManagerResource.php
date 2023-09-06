@@ -17,7 +17,9 @@ class ManagerResource extends Resource
 {
     protected static ?string $model = Manager::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+//    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationGroup = 'Personel';
 
     public static function form(Form $form): Form
     {
